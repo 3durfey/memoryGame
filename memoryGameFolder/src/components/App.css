@@ -1,15 +1,35 @@
-body {
+.bottomContainer {
   background-color: black;
-}
-.gifs {
-  margin: 0 auto;
-  width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
 }
 .gif {
   padding: 0 2px;
+  margin: 10px;
+}
+.gif:hover {
+  border: solid 5px red;
+}
+.gifContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 50px;
 }
 .loader {
-  color: blue;
+  color: white;
+}
+.topAndBottom {
+  background-color: purple;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+header {
+  background-color: darkgrey;
+  text-align: center;
 }

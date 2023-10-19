@@ -1,12 +1,15 @@
-function randomArrayGenerator(alreadyPicked, numberOfGifs) {
+function randomArrayGenerator(alreadyPicked, numberOfGifs, gifArrayLength) {
+  if (gifArrayLength === -1) {
+    gifArrayLength = 20;
+  }
   //default values 0, 29, 30
   return inputNeededNumbers(
-    getRandomInt(0, 29, numberOfGifs),
+    getRandomInt(0, gifArrayLength, numberOfGifs),
     alreadyPicked,
     numberOfGifs
   );
 }
-
+//gets a random number from min to max, numberOfGifs is the number of gifs that need to be in the array
 function getRandomInt(min, max, numberOfGifs) {
   let arrayLength = numberOfGifs + 1;
   let array = [];

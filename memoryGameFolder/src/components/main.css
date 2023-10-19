@@ -1,0 +1,12 @@
+body {
+  display: flex;
+  font-family: "Roboto", sans-serif;
+  font-family: "Bungee Spice", sans-serif;
+  font-size: 50px;
+}
+#root {
+  height: 100vh;
+  background-color: black;
+  flex-grow: 1;
+  display: flex;
+}
