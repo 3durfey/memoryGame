@@ -32,8 +32,8 @@ function GameLogic({ setLevel, level }) {
   }
 
   function nextLevel() {
-    console.log("next level");
-    console.log(level);
+    localStorage.setItem("level", level);
+    console.log(localStorage.getItem("level"));
     setLevel(level + 1);
     setClicks(0);
     setNumberOfGifs(numberOfGifs + 1);
@@ -42,7 +42,7 @@ function GameLogic({ setLevel, level }) {
   }
   function restart() {
     setClicks(0);
-    setLevel(0);
+    setLevel(1);
     setNumberOfGifs(2);
     setClickedArray([]);
     setGameEnd("playing");
@@ -51,7 +51,7 @@ function GameLogic({ setLevel, level }) {
     (async function () {
       setIsLoading(true);
       const gf = new GiphyFetch("Dc8YiYtIJC8VnCPxCHO04ZiKwrBqzTzZ");
-      const gifs = await gf.search("white", {
+      const gifs = await gf.search("corgi", {
         sort: "relevant",
         lang: "es",
         limit: 2000,

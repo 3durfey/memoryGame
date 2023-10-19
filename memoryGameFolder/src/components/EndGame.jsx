@@ -5,7 +5,9 @@ function EndGame({ level, nextLevel, gameEnd, restart }) {
     return (
       <div className="endGame">
         <h1>Game Over</h1>
-        <button onClick={() => restart()}>Fail, Restart at 1</button>
+        <button className="btn btn-secondary" onClick={() => restart()}>
+          Restart
+        </button>
       </div>
     );
   }

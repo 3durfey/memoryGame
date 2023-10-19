@@ -5,6 +5,9 @@ import "./App.css";
 
 function App() {
   const [level, setLevel] = useState(1);
+  if (localStorage.getItem("level") === null) {
+    localStorage.setItem("level", 1);
+  }
   return (
     <div className="topAndBottom">
       <header>
