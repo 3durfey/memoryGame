@@ -18,17 +18,22 @@ function GameLogic({ setLevel, level }) {
     for (let x = 0; x < clickedArray.length; x++) {
       if (data[clickedArray[x]].id === id) {
         setGameEnd("fail");
+        return;
       }
     }
+
     if (clicks === numberOfGifs) {
+      console.log("pass");
       setGameEnd("pass");
     }
-    setClicks(clicks + 1);
+    console.log("clicks " + clicks);
+    console.log("gifs " + numberOfGifs);
     for (let x = 0; x < data.length; x++) {
       if (data[x].id === id) {
         setClickedArray([...clickedArray, x]);
       }
     }
+    setClicks(clicks + 1);
   }
 
   function nextLevel() {
