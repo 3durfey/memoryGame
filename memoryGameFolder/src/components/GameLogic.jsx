@@ -23,11 +23,9 @@ function GameLogic({ setLevel, level }) {
     }
 
     if (clicks === numberOfGifs) {
-      console.log("pass");
       setGameEnd("pass");
     }
-    console.log("clicks " + clicks);
-    console.log("gifs " + numberOfGifs);
+
     for (let x = 0; x < data.length; x++) {
       if (data[x].id === id) {
         setClickedArray([...clickedArray, x]);
@@ -37,8 +35,10 @@ function GameLogic({ setLevel, level }) {
   }
 
   function nextLevel() {
-    localStorage.setItem("level", level);
-    console.log(localStorage.getItem("level"));
+    let tempLevel = localStorage.getItem("level");
+    if (tempLevel < level) {
+      localStorage.setItem("level", level);
+    }
     setLevel(level + 1);
     setClicks(0);
     setNumberOfGifs(numberOfGifs + 1);
