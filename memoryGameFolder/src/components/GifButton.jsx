@@ -1,6 +1,22 @@
 import { Loader } from "./Loader";
 import "./GifButton.css";
+import PropTypes from "prop-types";
+import { useState } from "react";
+import { v4 } from "uuid";
+RenderGifs.propTypes = {
+  data: PropTypes.array,
+  isLoading: PropTypes.bool,
+  addGif: PropTypes.func,
+  randomArray: PropTypes.array,
+};
+GifButton.propTypes = {
+  gifKey: PropTypes.string,
+  src: PropTypes.string,
+  clicked: PropTypes.func,
+};
 function RenderGifs({ data, isLoading, addGif, randomArray }) {
+  const [css, setCss] = useState(true);
+
   if (isLoading) {
     return <Loader />;
   }
@@ -10,8 +26,8 @@ function RenderGifs({ data, isLoading, addGif, randomArray }) {
   for (let x = 0; x < randomArray.length; x++) {
     newArray.push(data[randomArray[x]]);
   }
-  //console.log(randomArray);
   return newArray.map((gif) => {
+    console.log("reloaded");
     return (
       <GifButton
         key={index++}
@@ -22,9 +38,14 @@ function RenderGifs({ data, isLoading, addGif, randomArray }) {
     );
   });
 }
+
 function GifButton({ gifKey, src, clicked }) {
   return (
-    <button className="gif" id={gifKey} onClick={() => clicked(gifKey)}>
+    <button
+      className="gif gifAnimation"
+      id={gifKey}
+      onClick={() => clicked(gifKey)}
+    >
       <img src={src} alt="gif" />
     </button>
   );

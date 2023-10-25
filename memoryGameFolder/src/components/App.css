@@ -5,12 +5,24 @@
   align-items: center;
   flex-grow: 1;
 }
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+}
 .gif {
   padding: 0 2px;
   margin: 10px;
 }
+.gifAnimation {
+  animation: fade 3s ease-in;
+}
 .gif:hover {
-  border: solid 5px red;
+  transform: scale(1.1);
+}
+.gif:active {
+  transform: scale(0.9) rotate(90deg);
+  animation-duration: 3s;
 }
 .gifContainer {
   display: flex;
