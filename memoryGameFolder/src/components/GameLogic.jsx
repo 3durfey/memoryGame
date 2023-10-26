@@ -4,14 +4,13 @@ import { RenderGifs } from "./GifButton";
 import { EndGame } from "./EndGame";
 import { randomArrayGenerator } from "./randomNumber";
 
-function GameLogic({ setLevel, level }) {
+function GameLogic({ setLevel, level, searchTerm }) {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [clickedArray, setClickedArray] = useState([]);
   const [gameEnd, setGameEnd] = useState("playing");
   const [numberOfGifs, setNumberOfGifs] = useState(2);
   const [clicks, setClicks] = useState(0);
-
   const gifArrayLength = data.length - 1;
   //function to add gif to array
   function addGif(id) {
@@ -56,7 +55,7 @@ function GameLogic({ setLevel, level }) {
     (async function () {
       setIsLoading(true);
       const gf = new GiphyFetch("Dc8YiYtIJC8VnCPxCHO04ZiKwrBqzTzZ");
-      const gifs = await gf.search("corgi", {
+      const gifs = await gf.search(searchTerm, {
         sort: "relevant",
         lang: "es",
         limit: 2000,
@@ -71,7 +70,7 @@ function GameLogic({ setLevel, level }) {
         )
       );
     })();
-  }, []);
+  }, [searchTerm]);
   if (gameEnd === "playing") {
     return (
       <>

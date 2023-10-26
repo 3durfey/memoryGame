@@ -5,17 +5,23 @@ import "./App.css";
 
 function App() {
   const [level, setLevel] = useState(1);
+  const [searchTerm, setSearchTerm] = useState("corgi");
+
   if (localStorage.getItem("level") === null) {
     localStorage.setItem("level", 1);
   }
   return (
     <div className="topAndBottom">
       <header>
-        <Header level={level}></Header>
+        <Header level={level} setSearchTerm={setSearchTerm}></Header>
       </header>
       <div className="bottomContainer">
         <div className="gifContainer">
-          <GameLogic setLevel={setLevel} level={level} />
+          <GameLogic
+            setLevel={setLevel}
+            level={level}
+            searchTerm={searchTerm}
+          />
         </div>
       </div>
     </div>
