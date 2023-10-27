@@ -13,7 +13,11 @@ function App() {
   return (
     <div className="topAndBottom">
       <header>
-        <Header level={level} setSearchTerm={setSearchTerm}></Header>
+        <Header
+          level={level}
+          setSearchTerm={setSearchTerm}
+          searchTerm={searchTerm}
+        ></Header>
       </header>
       <div className="bottomContainer">
         <div className="gifContainer">

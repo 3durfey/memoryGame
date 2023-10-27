@@ -1,8 +1,7 @@
 import { Loader } from "./Loader";
 import "./GifButton.css";
 import PropTypes from "prop-types";
-import { useState } from "react";
-import { v4 } from "uuid";
+
 RenderGifs.propTypes = {
   data: PropTypes.array,
   isLoading: PropTypes.bool,
@@ -15,8 +14,6 @@ GifButton.propTypes = {
   clicked: PropTypes.func,
 };
 function RenderGifs({ data, isLoading, addGif, randomArray }) {
-  const [css, setCss] = useState(true);
-
   if (isLoading) {
     return <Loader />;
   }

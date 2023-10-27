@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-function Header({ level, setSearchTerm }) {
+function Header({ level, setSearchTerm, searchTerm }) {
   let searchValue = "";
   return (
     <div className="header">
@@ -9,6 +9,7 @@ function Header({ level, setSearchTerm }) {
         <input
           className="input"
           type="text"
+          defaultValue={searchTerm}
           onChange={(e) => {
             searchValue = e.target.value;
           }}
